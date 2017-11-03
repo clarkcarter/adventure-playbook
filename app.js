@@ -23,16 +23,19 @@ class Root extends Component {
     const {viewport, width, height} = this.state;
 
     return (
-      <MapGL
-        {...viewport}
-        mapStyle="mapbox://styles/mapbox/dark-v9"
-        onChangeViewport={v => this.setState({viewport: v})}
-        preventStyleDiffing={false}
-        mapboxApiAccessToken={MAPBOX_TOKEN}
-        perspectiveEnabled
-        width={width}
-        height={height}>
-      </MapGL>
+      <div>
+        hello, world.
+        <MapGL
+          {...viewport}
+          mapStyle="mapbox://styles/mapbox/dark-v9"
+          onChangeViewport={v => this.setState({viewport: v})}
+          preventStyleDiffing={false}
+          mapboxApiAccessToken={MAPBOX_TOKEN}
+          perspectiveEnabled
+          width={width}
+          height={height}>
+        </MapGL>
+      </div>
     );
   }
 
