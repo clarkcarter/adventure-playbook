@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react';
 import {fromJS} from 'immutable';
-import MAP_STYLE from '../map-style-basic-v8.json';
+import MAP_STYLE from './utils/style.json';
 
 const defaultMapStyle = fromJS(MAP_STYLE);
 
-const categories = ['labels', 'roads', 'buildings', 'parks', 'water', 'background'];
+const categories = ['labels', 'roads', 'buildings', 'parks', 'water', 'background', 'stations', ];
 
 // Layer id patterns by category
 const layerSelector = {
@@ -13,7 +13,8 @@ const layerSelector = {
   parks: /park/,
   buildings: /building/,
   roads: /bridge|road|tunnel/,
-  labels: /label|place|poi/
+  labels: /label|place|poi/,
+  stations: /stations/,
 };
 
 // Layer color class by type
@@ -40,7 +41,8 @@ export default class StyleControls extends PureComponent {
         buildings: true,
         roads: true,
         labels: true,
-        background: true
+        background: true,
+        stations: true,
       },
       color: {
         water: '#DBE2E6',
@@ -48,7 +50,8 @@ export default class StyleControls extends PureComponent {
         buildings: '#c0c0c8',
         roads: '#ffffff',
         labels: '#78888a',
-        background: '#EBF0F0'
+        background: '#EBF0F0',
+        stations: '#f00',
       }
     };
   }
