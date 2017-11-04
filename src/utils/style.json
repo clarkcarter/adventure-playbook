@@ -90,15 +90,15 @@
         "mapbox:trackposition": true
     },
     "center": [
-        -76.83758593553074,
-        39.02070345554711
+        -68.9506328625157,
+        -21.07331566266876
     ],
-    "zoom": 8.631448015235783,
+    "zoom": 7.555681341131957,
     "bearing": 0,
     "pitch": 0,
     "sources": {
         "composite": {
-            "url": "mapbox://mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v7,clarkcarter.cj9j4m2fc0l4r32lgm0s1bk8p-35dj9",
+            "url": "mapbox://mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v7,clarkcarter.cj9j4m2fc0l4r32lgm0s1bk8p-35dj9,clarkcarter.cj9l7d7cd19uj2qlgpk584z5t-2uvip",
             "type": "vector"
         }
     },
@@ -14125,11 +14125,40 @@
                 ]
             },
             "paint": {}
+        },
+        {
+            "id": "mountains",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "Mountains",
+            "layout": {
+                "visibility": "visible",
+                "icon-image": "mountain-15",
+                "text-field": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            0,
+                            ""
+                        ],
+                        [
+                            7,
+                            "{Mountain}"
+                        ]
+                    ]
+                },
+                "text-anchor": "bottom",
+                "text-offset": [
+                    0,
+                    -0.6
+                ]
+            },
+            "paint": {}
         }
     ],
     "created": "2017-11-02T23:50:43.900Z",
     "id": "cj9j4jh3ybgx42ss2qu1sse72",
-    "modified": "2017-11-03T06:19:20.193Z",
+    "modified": "2017-11-04T10:54:44.860Z",
     "owner": "clarkcarter",
     "visibility": "private",
     "draft": false

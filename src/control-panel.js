@@ -4,7 +4,7 @@ import MAP_STYLE from './utils/style.json';
 
 const defaultMapStyle = fromJS(MAP_STYLE);
 
-const categories = ['labels', 'roads', 'buildings', 'parks', 'water', 'background', 'stations', ];
+const categories = ['labels', 'roads', 'buildings', 'parks', 'water', 'background', 'stations', 'mountains', ];
 
 // Layer id patterns by category
 const layerSelector = {
@@ -15,6 +15,7 @@ const layerSelector = {
   roads: /bridge|road|tunnel/,
   labels: /label|place|poi/,
   stations: /stations/,
+  mountains: /mountains/,
 };
 
 // Layer color class by type
@@ -43,6 +44,7 @@ export default class StyleControls extends PureComponent {
         labels: true,
         background: true,
         stations: true,
+        mountains: true,
       },
       color: {
         water: '#DBE2E6',
@@ -52,6 +54,7 @@ export default class StyleControls extends PureComponent {
         labels: '#78888a',
         background: '#EBF0F0',
         stations: '#f00',
+        mountains: '#f00',
       }
     };
   }
