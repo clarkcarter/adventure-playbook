@@ -4,17 +4,10 @@ import MAP_STYLE from './utils/style.json';
 
 const defaultMapStyle = fromJS(MAP_STYLE);
 
-const categories = ['labels', 'roads', 'buildings', 'parks', 'water', 'background', 'stations', 'mountains', ];
+const categories = ['mountains', ];
 
 // Layer id patterns by category
 const layerSelector = {
-  background: /background/,
-  water: /water/,
-  parks: /park/,
-  buildings: /building/,
-  roads: /bridge|road|tunnel/,
-  labels: /label|place|poi/,
-  stations: /stations/,
   mountains: /mountains/,
 };
 
@@ -37,25 +30,13 @@ export default class StyleControls extends PureComponent {
 
     this.state = {
       visibility: {
-        water: true,
-        parks: true,
-        buildings: true,
-        roads: true,
-        labels: true,
-        background: true,
-        stations: true,
         mountains: true,
       },
       color: {
-        water: '#DBE2E6',
-        parks: '#E6EAE9',
-        buildings: '#c0c0c8',
-        roads: '#ffffff',
-        labels: '#78888a',
-        background: '#EBF0F0',
-        stations: '#f00',
         mountains: '#f00',
-      }
+      },
+      minHeightMetres: 0,
+
     };
   }
 
@@ -109,12 +90,21 @@ export default class StyleControls extends PureComponent {
     );
   }
 
+  filterByHeight = (e) => {
+    this.setState({
+      minHeightMetres: e.target.value
+    });
+  }
+
   render() {
     const Container = this.props.containerComponent || defaultContainer;
 
     return (
       <Container>
         { categories.map(name => this._renderLayerControl(name)) }
+        <label>Min height(m)</label>
+        <input id="mountainHeightMetres" type="range" value={this.state.minHeightMetres} min="0" max="8848" step="1" onChange={this.filterByHeight} />
+        <h1>{this.state.minHeightMetres}</h1>
       </Container>
     );
   }
